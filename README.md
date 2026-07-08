@@ -1,8 +1,6 @@
 # 🚀 TaskFlow - Full Stack Task Management Platform
 
-TaskFlow is a full-stack task management platform inspired by Jira, Trello, and Linear. It helps teams assign tasks, track progress, and manage work efficiently through role-based dashboards.
-
-> ⚠️ This project is inspired by modern project management tools and is built as a portfolio project. It is **not** a clone of Jira.
+TaskFlow is a full-stack task management platform . It helps teams assign tasks, track progress, and manage work efficiently through role-based dashboards.
 
 ---
 
