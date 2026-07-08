@@ -1,11 +1,48 @@
-# Task Manager Platform
+# 🚀 TaskFlow - Full Stack Task Management Platform
 
-A full-stack task management platform inspired by Jira, Trello, and Linear. It is designed as a portfolio-grade SaaS application for teams, startups, and students.
+TaskFlow is a full-stack task management platform inspired by Jira, Trello, and Linear. It helps teams assign tasks, track progress, and manage work efficiently through role-based dashboards.
 
-## Tech Stack
+> ⚠️ This project is inspired by modern project management tools and is built as a portfolio project. It is **not** a clone of Jira.
 
-Frontend
-- React + Vite
+---
+
+# ✨ Features
+
+## Authentication
+- User Registration
+- User Login
+- JWT Authentication
+- Role-Based Authorization (Admin / Member)
+- Profile Management
+- Profile Image Upload
+
+## Admin
+- Dashboard
+- Create Tasks
+- Manage Tasks
+- Manage Users
+- Assign Tasks
+- Dashboard Analytics
+
+## Member
+- Personal Dashboard
+- View Assigned Tasks
+- Task Details
+- Checklist Progress
+- Update Task Status
+
+## Backend
+- REST APIs
+- JWT Authentication
+- MongoDB Database
+- Image Upload using Multer
+
+---
+
+# 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
 - React Router DOM v7
 - Tailwind CSS
 - Axios
@@ -13,162 +50,157 @@ Frontend
 - Recharts
 - React Icons
 
-Backend
+### Backend
 - Node.js
 - Express.js
-- MongoDB + Mongoose
-- JWT authentication
+- MongoDB
+- Mongoose
+- JWT
 - bcryptjs
 - Multer
 
-Testing
+### Tools
 - Postman
+- Git
+- GitHub
 
-## Project Structure
+---
+
+# 📁 Folder Structure
 
 ```text
-Task-Manager/
-├── Backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middlewares/
-│   ├── models/
-│   ├── routes/
+TaskFlow
+│
+├── Backend
+│   ├── config
+│   ├── controllers
+│   ├── middlewares
+│   ├── models
+│   ├── routes
+│   ├── uploads
 │   └── server.js
-├── Frontend/
-│   └── TASK-MANAGER/
-│       ├── src/
-│       │   ├── components/
-│       │   ├── pages/
-│       │   ├── routes/
-│       │   └── utils/
+│
+├── Frontend
+│   └── TASK-MANAGER
+│       ├── src
+│       ├── public
 │       └── vite.config.js
-└── package.json
+│
+└── README.md
 ```
 
-## Features
+---
 
-Authentication
-- Register, login, profile, and profile update
-- JWT-based private routes
-- Role-based access control
+# ⚙️ Installation
 
-Admin Workspace
-- Dashboard analytics
-- Create task form
-- Task management table
-- User management list
-
-Member Workspace
-- Personal dashboard
-- My tasks view
-- Task detail screen
-- Checklist progress updates
-
-Reports
-- Task export
-- User-task export
-
-Uploads
-- Profile image upload support
-
-## Setup
-
-### 1) Install dependencies
-
-From the project root:
+## Clone Repository
 
 ```bash
-npm install
-cd Backend && npm install
-cd ../Frontend/TASK-MANAGER && npm install
+git clone <repository-url>
 ```
 
-### 2) Configure environment variables
+---
 
-Create a `.env` file in `Backend/`:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-ADMIN_INVITE_TOKEN=your_optional_admin_token
-CLIENT_URL=http://localhost:5173
-```
-
-### 3) Run the apps
-
-Backend:
+## Backend
 
 ```bash
 cd Backend
+npm install
 npm run dev
 ```
 
-Frontend:
+---
+
+## Frontend
 
 ```bash
 cd Frontend/TASK-MANAGER
+npm install
 npm run dev
 ```
 
-From the repository root you can also use:
+---
 
-```bash
-npm run dev:frontend
-npm run dev:backend
+# 🔐 Environment Variables
+
+Create a `.env` file inside **Backend**
+
+```env
+PORT=5000
+
+MONGO_URI=YOUR_MONGODB_URI
+
+JWT_SECRET=YOUR_SECRET_KEY
+
+ADMIN_INVITE_TOKEN=YOUR_ADMIN_TOKEN
+
+CLIENT_URL=http://localhost:5173
 ```
 
-## Available Scripts
+---
 
-Root
-- `npm run dev` - start the frontend from the workspace root
-- `npm run dev:frontend` - start the frontend
-- `npm run dev:backend` - start the backend
-- `npm run build` - build the frontend
-- `npm run lint` - lint the frontend
+# 📡 API Endpoints
 
-Frontend
-- `npm run dev` - start Vite
-- `npm run build` - production build
-- `npm run lint` - run ESLint
+## Authentication
 
-Backend
-- `npm run dev` - start Express with nodemon
-- `npm start` - start Express in production mode
+POST `/api/auth/register`
 
-## API Overview
+POST `/api/auth/login`
 
-Auth
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/auth/profile`
-- `PUT /api/auth/profile`
-- `POST /api/auth/upload-image`
+GET `/api/auth/profile`
 
-Tasks
-- `GET /api/tasks/tasks`
-- `GET /api/tasks/:id`
-- `POST /api/tasks/`
-- `PUT /api/tasks/:id`
-- `DELETE /api/tasks/:id`
-- `PUT /api/tasks/:id/status`
-- `PUT /api/tasks/:id/todo`
-- `GET /api/tasks/dashboard`
-- `GET /api/tasks/user-dashboard-data`
+PUT `/api/auth/profile`
 
-Users
-- `GET /api/users/`
-- `GET /api/users/:id`
-- `PUT /api/users/:id`
-- `DELETE /api/users/:id`
+POST `/api/auth/upload-image`
 
-Reports
-- `GET /api/reports/export/tasks`
-- `GET /api/reports/export/users`
+---
 
-## Notes
+## Tasks
 
-- Uploaded files are served from `/uploads`.
-- The frontend is a SaaS-style implementation and is not a Jira clone.
-- Backend task status values are normalized so the current frontend and older stored data can coexist safely.
+GET `/api/tasks/tasks`
+
+GET `/api/tasks/:id`
+
+POST `/api/tasks/`
+
+PUT `/api/tasks/:id`
+
+DELETE `/api/tasks/:id`
+
+PUT `/api/tasks/:id/status`
+
+PUT `/api/tasks/:id/todo`
+
+GET `/api/tasks/dashboard`
+
+GET `/api/tasks/user-dashboard-data`
+
+---
+
+## Users
+
+GET `/api/users`
+
+GET `/api/users/:id`
+
+PUT `/api/users/:id`
+
+DELETE `/api/users/:id`
+
+---
+
+# 📌 Future Improvements
+
+- Kanban Board
+- Activity Timeline
+- Comments
+- Notifications
+- Calendar View
+- Team Analytics
+- AI Task Assistant
+
+---
+
+# 👨‍💻 Author
+
+**Shrestha Verdhan**
