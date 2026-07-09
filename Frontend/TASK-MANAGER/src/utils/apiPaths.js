@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://taskflow-gj93.onrender.com";
 
 export const API_PATHS = {
 
